@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 
 project(qoi_viewer C)
 
-find_package(raylib 4.0.0 REQUIRED)
+find_package(raylib 4.0.0 QUIET)
 if (NOT raylib_FOUND)
   include(FetchContent)
   FetchContent_Declare(
