@@ -5,3 +5,6 @@ CMakeCache.txt
 Makefile
 .vscode/
 qoi_viewer
+_deps
+CPackConfig.cmake
+CPackSourceConfig.cmake
