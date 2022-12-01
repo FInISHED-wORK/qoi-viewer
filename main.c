@@ -40,6 +40,8 @@ int check_qoi_get_channels(const char* filepath)
 
 int main(int argc, char **argv)
 {
+    SetTraceLogLevel(LOG_NONE);
+
     (void)argc;
     (void)*argv++;
 
@@ -66,7 +68,9 @@ int main(int argc, char **argv)
     InitWindow(desc.width, desc.height, "qoi-viewer");
     SetWindowTitle(filepath);
 
+    SetTraceLogLevel(LOG_INFO);
     TraceLog(LOG_INFO, "QOI Desc: %dx%d, channels %d", desc.width, desc.height, desc.channels);
+    SetTraceLogLevel(LOG_NONE);
 
     while (!WindowShouldClose())
     {
