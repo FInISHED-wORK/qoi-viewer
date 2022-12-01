@@ -105,5 +105,7 @@ int main(int argc, char **argv)
         EndDrawing();
     }
 
+    free(qoi);
+
     CloseWindow();
 }
