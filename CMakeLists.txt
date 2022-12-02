@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 
+set(CMAKE_C_COMPILER ${CC})
+set(CMAKE_C_FLAGS "-Wall -Wextra -std=c99 -pedantic")
+
 project(qoi_viewer C)
 
 find_package(raylib 4.0.0 QUIET)
@@ -17,9 +20,6 @@ if (NOT raylib_FOUND)
     add_subdirectory(${raylib_SOURCE_DIR} ${raylib_BINARY_DIR})
   endif()
 endif()
-
-set(CMAKE_C_COMPILER "cc")
-set(CMAKE_C_FLAGS "-Wall -Wextra -std=c99 -pedantic")
 
 add_executable(qoi_viewer main.c qoi.h)
 
