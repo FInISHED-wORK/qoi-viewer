@@ -2,6 +2,8 @@
 
 QOI Image viewer using qoi default implementation and Raylib.
 
+![example](test.png)
+
 ## How to:
 
 Requires CMake.
