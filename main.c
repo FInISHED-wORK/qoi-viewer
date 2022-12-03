@@ -48,10 +48,20 @@ int main(int argc, char **argv)
     if (*argv == NULL)
     {
         printf("USAGE: ./qoi-viewer <input>.qoi\n");
+        printf("       optional: ./qoi-viewer <input>.qoi [hexcolor: RGBA]\n");
         exit(1);
     }
 
     const char *filepath = *argv++;
+
+    Color back_color = RAYWHITE;
+
+    if (*argv != NULL)
+    {
+        //fixme 22/12/03: Maybe prevent the user of using non valid rgba values?
+        __uint32_t val = (__uint32_t)strtoul(*argv, NULL, 16);
+        back_color = GetColor(val);
+    }
 
     int channels = check_qoi_get_channels(filepath);
 
@@ -69,12 +79,12 @@ int main(int argc, char **argv)
     SetWindowTitle(filepath);
 
     printf("QOI Desc: %dx%d, channels %d\n", desc.width, desc.height, desc.channels);
-    
+
     while (!WindowShouldClose())
     {
         BeginDrawing();
 
-        ClearBackground(RAYWHITE);
+        ClearBackground(back_color);
 
         unsigned int y = 0;
         unsigned int x = 0;
