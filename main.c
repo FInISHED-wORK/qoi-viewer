@@ -48,7 +48,7 @@ int main(int argc, char **argv)
     if (*argv == NULL)
     {
         printf("USAGE: ./qoi-viewer <input>.qoi\n");
-        printf("       optional: ./qoi-viewer <input>.qoi [hexcolor: RGBA]\n");
+        printf("       optional: ./qoi-viewer <input>.qoi [hexcolor: RGB]\n");
         exit(1);
     }
 
@@ -58,9 +58,11 @@ int main(int argc, char **argv)
 
     if (*argv != NULL)
     {
-        //fixme 22/12/03: Maybe prevent the user of using non valid rgba values?
         __uint32_t val = (__uint32_t)strtoul(*argv, NULL, 16);
-        back_color = GetColor(val);
+        back_color.r = (val & 0xFF0000) >> 16;
+        back_color.g = (val & 0x00FF00) >> 8;
+        back_color.b = (val & 0x0000FF);
+        back_color.a = 0xFF;
     }
 
     int channels = check_qoi_get_channels(filepath);
