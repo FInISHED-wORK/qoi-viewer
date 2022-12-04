@@ -13,7 +13,7 @@ git clone https://github.com/mscode98/qoi-viewer.git
 cd qoi-viewer
 cmake .
 make
-./qoi-viewer <input>.qoi
+./qoiviewer <input>.qoi
 ```
 
 ## Copyright:
