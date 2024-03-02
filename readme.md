@@ -9,7 +9,7 @@ QOI Image viewer using qoi default implementation and Raylib.
 Requires CMake.
 
 ```console
-git clone https://github.com/mscode98/qoi-viewer.git
+git clone https://github.com/FInISHED-wORK/qoi-viewer.git
 cd qoi-viewer
 cmake .
 make
